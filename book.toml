@@ -1,0 +1,87 @@
+[book]
+title = "Example book"
+authors = ["Henrik Beck"]
+description = "The example book covers examples."
+language = "en"
+multilingual = false
+src = "src"
+
+[rust]
+edition = "2018"                  # the default edition for code blocks
+
+[build]
+build-dir = "dist"                # the directory where the output is placed
+create-missing = true             # whether or not to create missing pages
+use-default-preprocessors = true  # use the default preprocessors
+extra-watch-dirs = []             # directories to watch for triggering builds
+
+[preprocessor.theme]
+pagetoc = true
+
+pagetoc-width = "13%"
+content-max-width = "82%"
+pagetoc-fontsize = "14.5px"
+sidebar-width = "300px"
+menu-bar-height = "40px"   # memu-bar = the bar on the top
+page-padding = "15px"
+mobile-content-max-width = "98%"
+
+# layout
+content-padding = "0 10px"
+content-main-margin-left = "2%"
+content-main-margin-right = "2%"
+nav-chapters-max-width = "auto"
+nav-chapters-min-width = "auto"
+chapter-line-height = "2em"
+section-line-height = "1.5em"
+
+# modify some fontsizes
+root-font-size = "70%"    # control the main font-size
+body-font-size = "1.5rem"
+code-font-size = "0.9em"
+sidebar-font-size = "1em"    # sidebar = toc on the left
+
+# if true, never read and touch the files in theme dir
+#turn-off = false
+
+[output.html]
+#default-theme = "light"
+default-theme = "rust"
+#default-theme = "coal"
+#default-theme = "navy"
+#default-theme = "ayu"
+#theme = "mytheme"
+#default-theme = "dracula"
+#default-theme = "github"
+#default-theme = "monokai"
+#default-theme = "xcode"
+
+#additional-css = ["theme/pagetoc.css"] 
+#additional-js = ["theme/pagetoc.js"] 
+
+#below-build-dir = true
+
+[output.html.fold]
+enable = true
+level = 0
+
+# mdbook-theme-ace
+#[output.html.playground]
+#editable = true
+
+[output.html.search]
+enable = true
+
+#[output.theme-ace]
+#theme-white = "dawn" 
+#theme-white = "dracula"
+#theme-white = "github"
+#theme-dark = "solarized_dark"
+#theme-dark = "solarized_dark"
+#theme-dark = "tomorrow_night"
+#below-build-dir = true
+
+#[output.demo-post]
+#ignores = ["Chapter 1"]
+#deny-odds = true
+#write-file = true
