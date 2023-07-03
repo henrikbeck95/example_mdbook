@@ -1,7 +1,7 @@
 [book]
-title = "Example book"
+title = "Example book - Hello, world!"
 authors = ["Henrik Beck"]
-description = "The example book covers examples."
+description = "The book hello world examples in multiple programming languages."
 language = "en"
 multilingual = false
 src = "src"
