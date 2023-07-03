@@ -18,9 +18,11 @@ Generate a documentation webpage based on Markdown files.
     1. Format your `./src/SUMMARY.md` file according to your needs.
     1. Configure your book using the `./book.toml` file.
     1. Customize your theme.
-    1. The generated content files are stored at `./book/` directory folder path.
+    1. The generated content files are stored at `./dist/` directory folder path.
 
 ## Setup
+
+### Development
 
 - Generate documentation
     > $ `mdbook build`
@@ -36,3 +38,11 @@ Generate a documentation webpage based on Markdown files.
 
 - The clean command is used to delete the generated book and any other build artifacts.
     > $ `mdbook clean`
+
+### Publishing
+
+Once the following requirements are attempted, then the generated contents are going to be available at [Example mdBook hosted on GitHub Pages](https://henrikbeck95.github.io/example_mdbook/dist/).
+
+- Requirements
+    1. [x] Documentation is built.
+    1. [x] Repository is commited and pushed to branch `main`.
