@@ -1,4 +1,11 @@
 language: rust
+sudo: false
+
+cache:
+  - cargo
+
+rust:
+  - stable
 
 #before_script:
   #- (test -x $HOME/.cargo/bin/cargo-install-update || cargo install cargo-update)
@@ -14,10 +21,7 @@ deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUBTOKEN
-  local-dir: book
+  #local-dir: book
+  local-dir: dist
   on:
     branch: master
-    #branch: development
-
-cache:
-- cargo
