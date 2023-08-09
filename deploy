@@ -4,6 +4,19 @@ PORT_EXPOSE=8000
 PATH_DIRECTORY_DOCUMENTS="./docs"
 #PATH_DIRECTORY_DOCUMENTS="./src"
 
+MESSAGE_HELP="
+\t\tmdBook deploy tool
+\t\t------------------
+-h, --help\t\tDisplay this help message.
+-b, --build\t\tGenerate the documentation web page.
+-d, --server-down\tServer down on localhost ${PORT_EXPOSE} port.
+-u, --server-up\t\tServer up on localhost ${PORT_EXPOSE} port.
+-w, --watch\t\tMonitoring changes on files
+-z, --all\t\tGenerate the documentation web page and 
+"
+
+MESSAGE_ERROR="Invalid option for ${0}!\n${MESSAGE_HELP}"
+
 display_message() {
 	echo -e "##############################\n# $*\n##############################"
 }
@@ -44,14 +57,15 @@ watch() {
 }
 
 case "$1" in
-	"-b") build ;;
-	"-d") server_down ;;
-	"-u") server_up ;;
-	"-w") watch ;;
-	"-z") 
+	"-h" | "--help") printf "%b" "$MESSAGE_HELP" ;;
+	"-b" | "--build") build ;;
+	"-d" | "--server-down") server_down ;;
+	"-u" | "--server-up") server_up ;;
+	"-w" | "--watch") watch ;;
+	"-z" | "--all") 
 		build
 		#watch
 		server_up
 		;;
-	*) echo "Invalid option for ${0}!" ;;
+	*) printf "%b" "$MESSAGE_ERROR" ;;
 esac

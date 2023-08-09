@@ -1,6 +1,7 @@
 # Summary
 
-[Home Page](../README.md)
+<!--[Home Page](../README.md)-->
+[Home Page](./content/home_page.md)
 
 # Chapters
 

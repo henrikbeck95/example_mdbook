@@ -1,12 +1,13 @@
 language: rust
 
-before_script:
-  - (test -x $HOME/.cargo/bin/cargo-install-update || cargo install cargo-update)
-  - (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.2" mdbook)
-  - cargo install-update -a
+#before_script:
+  #- (test -x $HOME/.cargo/bin/cargo-install-update || cargo install cargo-update)
+  #- (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.2" mdbook)
+  #- cargo install-update -a
 
 script:
-  - mdbook build
+  #- mdbook build
+  - ./deploy -z
 
 deploy:
   provider: pages
@@ -14,7 +15,8 @@ deploy:
   github-token: $GITHUBTOKEN
   local-dir: book
   on:
-    branch: master
+    #branch: master
+    branch: development
 
 cache:
 - cargo
