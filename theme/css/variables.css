@@ -8,8 +8,8 @@
     --menu-bar-height: 40px;
     --mono-font: "Source Code Pro", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono", monospace, monospace;
     --code-font-size: 0.875em /* please adjust the ace font size accordingly in editor.js */
-    --pagetoc-width: 13%;
     --pagetoc-fontsize: 14.5px;
+    --pagetoc-width: 13%;
 }
 
 @media only screen and (max-width:1439px) {
@@ -115,9 +115,9 @@
     --icons: #747474;
     --icons-hover: #000000;
 
-    --links: #1f1fff;
+    --links: #20609f;
 
-    --inline-code-color: #F42C4C;
+    --inline-code-color: #301900;
 
     --theme-popup-bg: #fafafa;
     --theme-popup-border: #cccccc;

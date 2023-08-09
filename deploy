@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+PORT_EXPOSE=8000
+PATH_DIRECTORY_DOCUMENTS="./docs"
+#PATH_DIRECTORY_DOCUMENTS="./src"
+
+display_message() {
+	echo -e "##############################\n# $*\n##############################"
+}
+
+execute_mdbook_main() {
+	# Path to mdBook binary file (then you do not need to have it installed on your system)
+	eval "${PATH_DIRECTORY_DOCUMENTS}"/assets/bin/mdbook "$*"
+}
+
+execute_mdbook_catppuccin() {
+	# Path to mdBook-catppuccin binary file (then you do not need to have it installed on your system)
+	eval "${PATH_DIRECTORY_DOCUMENTS}"/assets/bin/mdbook-catppuccin "$*" # same location where the book.toml lives
+}
+
+build() {
+	display_message "Building..."
+
+	execute_mdbook_catppuccin "install"
+	execute_mdbook_main "build"
+}
+
+server_down() {
+	display_message "Server is getting down..."
+
+	killall -9 mdbook
+}
+
+server_up() {
+	display_message "Server is getting up..."
+
+	execute_mdbook_main "serve ./ -p ${PORT_EXPOSE} -n 127.0.0.1"
+}
+
+watch() {
+	display_message "Watching changes..."
+
+	execute_mdbook_main "watch ./"
+}
+
+case "$1" in
+	"-b") build ;;
+	"-d") server_down ;;
+	"-u") server_up ;;
+	"-w") watch ;;
+	"-z") 
+		build
+		#watch
+		server_up
+		;;
+	*) echo "Invalid option for ${0}!" ;;
+esac

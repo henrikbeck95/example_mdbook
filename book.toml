@@ -1,32 +1,35 @@
 [book]
-title = "Example book - Hello, world!"
+title = "Introduction to mdBook tool"
 authors = ["Henrik Beck"]
-description = "The book hello world examples in multiple programming languages."
+description = "Generating a book with mdBook tool using Hello World programs written in multiple programming languages as examples."
 language = "en"
 multilingual = false
-src = "src"
+#src = "src"
+src = "docs"
 
 [rust]
-edition = "2018"                  # the default edition for code blocks
+edition = "2018"					# the default edition for code blocks
 
 [build]
-build-dir = "dist"                # the directory where the output is placed
-create-missing = true             # whether or not to create missing pages
-use-default-preprocessors = true  # use the default preprocessors
-extra-watch-dirs = []             # directories to watch for triggering builds
+#build-dir = "book"					# the directory where the output is placed
+build-dir = "dist"					# the directory where the output is placed
+#build-dir = "docs"					# the directory where the output is placed
+create-missing = true				# whether or not to create missing pages
+#use-default-preprocessors = true	# use the default preprocessors
+extra-watch-dirs = []				# directories to watch for triggering builds
 
 [preprocessor.theme]
-pagetoc = true
-
+# ???
+#pagetoc = true
 pagetoc-width = "13%"
 content-max-width = "82%"
 pagetoc-fontsize = "14.5px"
 sidebar-width = "300px"
-menu-bar-height = "40px"   # memu-bar = the bar on the top
+menu-bar-height = "40px"			# memu-bar = the bar on the top
 page-padding = "15px"
 mobile-content-max-width = "98%"
 
-# layout
+# Layout
 content-padding = "0 10px"
 content-main-margin-left = "2%"
 content-main-margin-right = "2%"
@@ -35,53 +38,70 @@ nav-chapters-min-width = "auto"
 chapter-line-height = "2em"
 section-line-height = "1.5em"
 
-# modify some fontsizes
-root-font-size = "70%"    # control the main font-size
+# Modify some fontsizes
+root-font-size = "70%"				# control the main font-size
 body-font-size = "1.5rem"
 code-font-size = "0.9em"
-sidebar-font-size = "1em"    # sidebar = toc on the left
+sidebar-font-size = "1em"			# sidebar = toc on the left
 
-# if true, never read and touch the files in theme dir
-#turn-off = false
+#[output.epub]
 
 [output.html]
-#default-theme = "light"
-default-theme = "rust"
-#default-theme = "coal"
-#default-theme = "navy"
+additional-css = ["./theme/catppuccin.css", "./theme/catppuccin-highlight.css"]
+
+# Original themes
 #default-theme = "ayu"
-#theme = "mytheme"
-#default-theme = "dracula"
-#default-theme = "github"
-#default-theme = "monokai"
-#default-theme = "xcode"
+#default-theme = "coal"
+#default-theme = "light"
+#default-theme = "navy"
+#default-theme = "rust"
 
-#additional-css = ["theme/pagetoc.css"] 
-#additional-js = ["theme/pagetoc.js"] 
+# mdBook Catppuccin themes
+#default-theme = "frappé"
+#default-theme = "latte"
+default-theme = "macchiato"
+#default-theme = "mocha"
 
-#below-build-dir = true
+#mathjax-support = true
+#site-url = "/mdBook/"
+#git-repository-url = "https://github.com/rust-lang/mdBook/tree/master/guide"
+#edit-url-template = "https://github.com/rust-lang/mdBook/edit/master/guide/{path}"
+
+#[output.html.code.hidelines]
+#python = "~"
 
 [output.html.fold]
-enable = true
+#enable = true
+enable = false
 level = 0
 
-# mdbook-theme-ace
-#[output.html.playground]
-#editable = true
+[output.html.playground]
+editable = true
+line-numbers = true
+
+#[output.html.redirect]
+#"/format/config.html" = "configuration/index.html"
 
 [output.html.search]
 enable = true
+#limit-results = 20
+#use-boolean-and = true
+#boost-title = 2
+#boost-hierarchy = 2
+#boost-paragraph = 1
+#expand = true
+#heading-split-level = 2
 
-#[output.theme-ace]
-#theme-white = "dawn" 
-#theme-white = "dracula"
-#theme-white = "github"
-#theme-dark = "solarized_dark"
-#theme-dark = "solarized_dark"
-#theme-dark = "tomorrow_night"
-#below-build-dir = true
+#[output.markmap]
+#optional = true
 
-#[output.demo-post]
-#ignores = ["Chapter 1"]
-#deny-odds = true
-#write-file = true
+[preprocessor.variables]
+use_env = true
+
+[preprocessor.variables.variables]
+
+# Paths
+path_assets_images = "../assets/images"		# Equivalent to "./docs/assets/images/hello_world.jpg" example
+
+[preprocessor.catppuccin]
+assets_version = "0.2.0" # DO NOT EDIT: Managed by `mdbook-catppuccin install`
