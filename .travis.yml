@@ -15,8 +15,8 @@ deploy:
   github-token: $GITHUBTOKEN
   local-dir: book
   on:
-    #branch: master
-    branch: development
+    branch: master
+    #branch: development
 
 cache:
 - cargo
