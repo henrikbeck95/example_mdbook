@@ -11,8 +11,8 @@ src = "docs"
 edition = "2018"					# the default edition for code blocks
 
 [build]
-#build-dir = "book"					# the directory where the output is placed
-build-dir = "dist"					# the directory where the output is placed
+build-dir = "book"					# the directory where the output is placed
+#build-dir = "dist"					# the directory where the output is placed
 #build-dir = "docs"					# the directory where the output is placed
 create-missing = true				# whether or not to create missing pages
 #use-default-preprocessors = true	# use the default preprocessors

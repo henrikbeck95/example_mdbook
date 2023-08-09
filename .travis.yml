@@ -7,26 +7,27 @@ cache:
 rust:
   - stable
 
-before_script:
+#before_script:
   #- (test -x $HOME/.cargo/bin/cargo-install-update || cargo install cargo-update)
   #- (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.2" mdbook)
   #- cargo install-update -a
-  - curl https://raw.githubusercontent.com/henrikbeck95/example_mdbook/main/docs/assets/bin/mdbook -o /usr/bin/mdbook
-  - curl https://raw.githubusercontent.com/henrikbeck95/example_mdbook/main/docs/assets/bin/mdbook-catppuccin -o /usr/bin/catppuccin
-  - curl https://raw.githubusercontent.com/henrikbeck95/example_mdbook/main/docs/assets/bin/mdbook-theme -o /usr/bin/theme
-  - curl https://raw.githubusercontent.com/henrikbeck95/example_mdbook/main/docs/assets/bin/mdbook-theme-ace -o /usr/bin/ace
-  - curl https://raw.githubusercontent.com/henrikbeck95/example_mdbook/main/docs/assets/bin/mdbook-variables -o /usr/bin/variables
+  #- curl https://raw.githubusercontent.com/henrikbeck95/example_mdbook/main/docs/assets/bin/mdbook -o /usr/bin/mdbook
+  #- curl https://raw.githubusercontent.com/henrikbeck95/example_mdbook/main/docs/assets/bin/mdbook-catppuccin -o /usr/bin/catppuccin
+  #- curl https://raw.githubusercontent.com/henrikbeck95/example_mdbook/main/docs/assets/bin/mdbook-theme -o /usr/bin/theme
+  #- curl https://raw.githubusercontent.com/henrikbeck95/example_mdbook/main/docs/assets/bin/mdbook-theme-ace -o /usr/bin/ace
+  #- curl https://raw.githubusercontent.com/henrikbeck95/example_mdbook/main/docs/assets/bin/mdbook-variables -o /usr/bin/variables
 
 script:
-  - mdbook build
+  #- mdbook build
   #- ./deploy -z
   #- ./deploy --build
+  - bash deploy --build
 
 deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUBTOKEN
-  #local-dir: book
-  local-dir: dist
+  local-dir: book
+  #local-dir: dist
   on:
     branch: master
